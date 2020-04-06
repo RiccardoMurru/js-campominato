@@ -19,16 +19,22 @@
 
 
 var bombs = [];
-var newBomb;
+var newBomb = 0;
 var attempts = [];
 
 // inserire numeri random nell'array
-for (var i = 0; i < 16; i++) {
+var i = 0;
+
+while (i < 16) {
     newBomb = getRandomNumber(1, 100);
-    bombs.push(newBomb);
+    if (!isInArray(bombs, newBomb)) {
+        bombs.push(newBomb);
+        i++;
+    }
 }
 
-console.log(bombs);
+
+console.log(bombs.sort());
 
 // chiedere di inserire numeri all'utente
 var newAttempt = parseInt( prompt('Inserisci un numero da 1 a 100'));
